@@ -1,0 +1,12 @@
+1Lekérdezés: Hétfőn az hétfői nap legnagyobbik óráját jeleníti meg:
+	SELECT osztály
+	from órarend
+	where nap=1 and óra=(SELECT max(óra) as utólsó_ora from órarend where nap=1)
+2Lekérdezés: 
+	SELECT *
+	from tantárgy
+	where heti_óraszám=(select max(heti_óraszám) from tantárgy)
+3Lekérdezés: legkisebb férőhelyel rendelkező terem
+	select *
+	from TEREM
+	where férőhely=(select min(férőhely) from TEREM)
